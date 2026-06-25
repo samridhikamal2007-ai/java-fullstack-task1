@@ -1,0 +1,271 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================================================== */
+:root {
+    --primary-color: #00f2fe;
+    /* Electric Cyan */
+    --secondary-color: #4facfe;
+    /* Deep Blue Accent */
+    --bg-dark: #0a0f1d;
+    /* Deep Tech Navy */
+    --bg-card: #131a30;
+    /* Card Dark Background */
+    --text-main: #ffffff;
+    /* Main White Text */
+    --text-muted: #8a99ad;
+    /* Muted Gray Text */
+    --form-input-bg: #1e2640;
+    /* Dark Input Fields */
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+    background: rgba(10, 15, 29, 0.9);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    /* Glassmorphism effect */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#branding h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.highlight {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+header nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color var(--transition-speed) ease;
+}
+
+header nav a:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+#hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 60px 20px;
+    position: relative;
+    background: radial-gradient(circle at top right, rgba(79, 172, 254, 0.15), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(0, 242, 254, 0.1), transparent 40%);
+}
+
+#hero h2 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 30%, var(--text-muted) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   4. CONTACT FORM SECTION
+   ========================================================================== */
+.contact-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.form-container {
+    max-width: 600px;
+    background: var(--bg-card);
+    padding: 50px 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+.form-container h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-container p {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--form-input-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--text-main);
+    transition: all var(--transition-speed) ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Highlight border and glow on focus */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+    outline: none;
+}
+
+/* ==========================================================================
+   5. INTERACTIVE BUTTONS
+   ========================================================================== */
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    color: #0a0f1d;
+    /* Dark text for contrast */
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5);
+    filter: brightness(1.1);
+}
+
+.btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
+footer {
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    background: #060a14;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (MOBILE FRIENDLY)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #hero h2 {
+        font-size: 32px;
+    }
+
+    .form-container {
+        padding: 30px 20px;
+    }
+}
