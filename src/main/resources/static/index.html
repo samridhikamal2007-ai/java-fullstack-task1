@@ -4,13 +4,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MainCrafts Technology | Welcome</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MainCrafts Technology | Core Operations</title>
+    <style>
+        :root {
+            --primary-color: #00f2fe;
+            --secondary-color: #4facfe;
+            --bg-dark: #0a0f1d;
+            --bg-card: #131a30;
+            --text-main: #ffffff;
+            --text-muted: #8a99ad;
+            --form-input-bg: #1e2640;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(10, 15, 29, 0.9);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #branding h1 {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        header nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color var(--transition-speed);
+        }
+
+        header nav a:hover {
+            color: var(--primary-color);
+        }
+
+        #hero {
+            min-height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 20px 40px 20px;
+            background: radial-gradient(circle at top right, rgba(79, 172, 254, 0.15), transparent 40%);
+        }
+
+        #hero h2 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        #hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        .contact-section {
+            padding: 60px 0;
+        }
+
+        .form-container {
+            max-width: 550px;
+            background: var(--bg-card);
+            padding: 45px 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            margin: 0 auto;
+        }
+
+        .form-container h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .form-container p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            background: var(--form-input-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 16px;
+            color: var(--text-main);
+            transition: all var(--transition-speed);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            color: #0a0f1d;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
+            transition: all var(--transition-speed);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4);
+        }
+
+        footer {
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Header Section -->
     <header>
         <div class="container">
             <div id="branding">
@@ -18,55 +214,76 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#hero">Home</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="hero">
         <div class="container">
-            <h2>Next-Gen Technology Solutions</h2>
-            <p>We build robust, scalable, and modern full-stack web applications tailored to your business needs.</p>
+            <h2>Next-Gen Full-Stack Systems</h2>
+            <p>Seamless processing pipelines engineered using Spring Data JPA and standalone MySQL architectures.</p>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
     <section id="contact" class="contact-section">
         <div class="container form-container">
-            <h2>Get In Touch</h2>
-            <p>Have a question or want to work together? Drop us a message!</p>
+            <h2>Database Submission</h2>
+            <p>Fill out the data fields to execute real-time persistence routing.</p>
 
-            <!-- Complete Action Route matching Spring Boot Endpoint -->
-            <form action="http://localhost:8080/contact" method="post" class="contact-form">
+            <form id="contactForm" class="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <label>Name</label>
+                    <input type="text" id="name" required placeholder="Your Name">
                 </div>
-
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <label>Email Address</label>
+                    <input type="email" id="email" required placeholder="name@domain.com">
                 </div>
-
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <label>Message Content</label>
+                    <textarea id="message" rows="4" required placeholder="Write message data here..."></textarea>
                 </div>
-
-                <button type="submit" class="btn-submit">Send Message</button>
+                <button type="submit" class="btn-submit">Submit Form Payload</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>MainCrafts Technology &copy; 2026 | hr@maincrafts.com</p>
+        <p>MainCrafts Technology &copy; 2026 | Enterprise Grade Infrastructure</p>
     </footer>
 
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:8080/api/v1/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.status === 201) {
+                    alert('Data persistent routing complete! Saved successfully inside MySQL.');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    alert('Submission payload rejected due to validation constraints.');
+                }
+            } catch (error) {
+                console.error('Network execution failure:', error);
+                alert('Connection to core API pipeline terminated.');
+            }
+        });
+    </script>
 </body>
 
 </html>

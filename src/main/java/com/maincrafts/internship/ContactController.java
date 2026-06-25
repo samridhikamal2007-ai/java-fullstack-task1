@@ -1,26 +1,32 @@
 package com.maincrafts.internship;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
-@RestController // [cite: 36]
-@CrossOrigin(origins = "*") 
-public class ContactController { // [cite: 37]
+@RestController
+@RequestMapping("/api/v1")
+@CrossOrigin(origins = "*") // Grants decoupled web browser contexts safety clearance
+public class ContactController {
 
-    @PostMapping("/contact") // [cite: 38]
-    public String handleContact( // [cite: 39]
-            @RequestParam String name, // [cite: 39]
-            @RequestParam String email, // [cite: 42]
-            @RequestParam String message) { // [cite: 43]
-        
-        System.out.println("====== New Contact Form Submission ======");
-        System.out.println("Name   : " + name); // [cite: 44]
-        System.out.println("Email  : " + email); // [cite: 44]
-        System.out.println("Message: " + message); // [cite: 44]
-        System.out.println("=========================================");
-        
-        return "Form submitted successfully!"; // [cite: 44]
+    private final ContactService contactService;
+
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
+    }
+
+    // Core endpoint handling inbound form pipelines
+    @PostMapping("/submit")
+    public ResponseEntity<Contact> saveContact(@Valid @RequestBody ContactDTO contactDTO) {
+        Contact savedContact = contactService.saveContact(contactDTO);
+        return new ResponseEntity<>(savedContact, HttpStatus.CREATED);
+    }
+
+    // Core endpoint outputting clean sequential JSON datasets
+    @GetMapping("/contacts")
+    public ResponseEntity<List<Contact>> getAllContacts() {
+        return ResponseEntity.ok(contactService.getAllContacts());
     }
 }
